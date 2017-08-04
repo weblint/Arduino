@@ -1,0 +1,35 @@
+const int data_pin1 = 2; /*Zone1 */
+const int clk_pulse_pin1 = 3; /*Zone1 */
+
+const int data_pin2 = 4; /*Zone2 */
+const int clk_pulse_pin2 = 5; /*Zone2 */
+
+byte zero  = 0xff;
+int time_interval_Zone1 = 600000;
+int time_interval_Zone2 = 30000;
+
+void setup()
+{
+  pinMode(clk_pulse_pin1, OUTPUT);
+  pinMode(data_pin1 , OUTPUT);
+  
+  pinMode(clk_pulse_pin2, OUTPUT);
+  pinMode(data_pin2 , OUTPUT);
+  
+}
+void loop()
+{
+/* Zone1...*/
+  for (int Bz = 0x00; Bz < 0xff; Bz++)
+  {
+    shiftOut(data_pin1, clk_pulse_pin1, MSBFIRST, Bz);
+    delay(time_interval_Zone1);
+  }
+/* Zone2...*/
+    for (int Bz = 0x00; Bz < 0xff; Bz++)
+  {
+    shiftOut(data_pin2, clk_pulse_pin2, MSBFIRST, Bz);
+    delay(time_interval_Zone2);
+  }
+
+}
