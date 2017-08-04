@@ -1,0 +1,21 @@
+const int relaisPin1 = 13;
+const int relaisPin2 = 12;
+ 
+void setup() {
+  pinMode(relaisPin1, OUTPUT); // Den PWM PIN "relaisPin" als Ausgangssignal setzen.
+  pinMode(relaisPin2, OUTPUT);
+}
+ 
+void loop() {
+  digitalWrite(relaisPin1, HIGH); //Relais an
+  delay(500);  //500ms warten
+  digitalWrite(relaisPin1, LOW);  //Relais aus
+  delay(1000);// 1000ms warten
+  /*
+  ---------------------------------------------------
+  */
+  digitalWrite(relaisPin2, HIGH); //Relais an
+  delay(500);  //500ms warten
+  digitalWrite(relaisPin2, LOW);  //Relais aus
+  delay(1000);// 1000ms warten
+}
