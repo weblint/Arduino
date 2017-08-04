@@ -1,0 +1,17 @@
+const int data_pin = 2;
+const int clk_pulse_pin = 3;
+byte zero  = 0xff;
+int time_interval = 1500;
+void setup()
+{
+  pinMode(clk_pulse_pin, OUTPUT);
+  pinMode(data_pin , OUTPUT);
+}
+void loop()
+{
+  for (int Bz = 0x00; Bz < 0xff; Bz++)
+  {
+    shiftOut(data_pin, clk_pulse_pin, MSBFIRST, Bz);
+    delay(time_interval);
+  }
+}
