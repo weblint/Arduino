@@ -1,0 +1,26 @@
+// Wartungsmodus der Bewässerungsanlage
+const int relaisPin1 = 13;
+const int relaisPin2 = 12;
+ 
+void setup() {
+  pinMode(relaisPin1, OUTPUT); // Den PWM PIN "relaisPin" als Ausgangssignal setzen.
+  pinMode(relaisPin2, OUTPUT);
+}
+ 
+void loop() {
+  pinMode(relaisPin1, OUTPUT);
+  digitalWrite(relaisPin1, HIGH); //Relais aus
+  delay(500);  //500ms warten
+  digitalWrite(relaisPin1, LOW);  //Relais ein
+  delay(1000);// 1000ms warten
+  pinMode(relaisPin1, INPUT);
+  /*
+  ---------------------------------------------------
+  */
+  pinMode(relaisPin2, OUTPUT);
+  digitalWrite(relaisPin2, HIGH); //Relais aus
+  delay(500);  //500ms warten
+  digitalWrite(relaisPin2, LOW);  //Relais ein
+  delay(1000);// 1000ms warten
+  pinMode(relaisPin2, INPUT);
+}
