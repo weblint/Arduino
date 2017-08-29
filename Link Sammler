@@ -1,8 +1,13 @@
 ******************
 Arduini Mini flashen
+https://www.arduinoclub.de/2013/11/12/arduino-pro-mini-programmieren/#comment-105
 https://www.arduinoclub.de/2013/11/12/arduino-pro-mini-programmieren/
 Schaltbild AVR Programer
 https://www.pololu.com/product/3170
+Übersicht ARDUINO (MEGA)
+https://www.arduino.cc/en/Main/ArduinoBoardDuemilanove
+Übersicht FTDI
+http://forum.arduino.cc/index.php?topic=30525.0
 ******************
 Stöbern:
 http://www.schatenseite.de/tag/arduino/
@@ -17,11 +22,14 @@ Nodemcu V3 Arduino Esp8266 Esp-12 E Lua Ch340 Wifi Wlan Iot Lolin Mini
 Vergleich der gängigsten Programmer
 http://www.mikrocontroller-elektronik.de/isp-programmer-fuer-arduino-bascom-und-atmel-studio/
 ******************
+FHEM
 CUL Arduino:
 http://tips-und-mehr.de/cul-866-mhz-aus-arduino-nano-und-cc1101-modul-im-kaestchen-fuer-fhem/
-
+https://wiki.fhem.de/wiki/HomeMatic_Asksin_Library
 Signalduino:
 https://wiki.fhem.de/wiki/SIGNALduino
+CC1101
+https://www.google.de/search?q=cc1101+arduino&ie=utf-8&oe=utf-8&gws_rd=cr&ei=JQ2lWdrEEImuUdj_v6gL
 ******************
 Temperaturregelung:
 https://www.google.de/search?q=arduino+nano+temperatur+steuerung&client=firefox-b&tbm=isch&imgil=uRnTr2GZs2m5RM%253A%253B9rRw1C8bPRWVbM%253Bhttp%25253A%25252F%25252Fwe-mod-it.com%25252Fboard258-diy-do-it-yourself%25252Fboard263-diy-how-to%25252Fboard231-raspberry-arduino%25252F2458-arduino-tutorial-3-l%25252525C3%25252525BCfter-per-pwm-steuern%25252F&source=iu&pf=m&fir=uRnTr2GZs2m5RM%253A%252C9rRw1C8bPRWVbM%252C_&usg=__I_bfA5xkCbVoK9Xw9rz0Af1HFaU%3D&biw=1366&bih=648&ved=0ahUKEwj_jJuQlODVAhWDY1AKHUTUD1cQyjcIVA&ei=ZYmWWb_GNYPHwQLEqL-4BQ#imgrc=NE9O49L2Tu3ntM:
