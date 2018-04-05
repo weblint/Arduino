@@ -8,9 +8,10 @@ const int relaisPin2 = 4;
 //Wenn die Anlage für den Winter ausgeblasen werden muss dann dieses Programm laufen lassen. 
 //Wichtig ist dabei, dass die kleinen Ventile an den Wechselstromventilen leicht geöffnet werden!!
 //Wenn die Anlage wieder in Betrieb genommen wird wie folgt vorgehen:
-// 1)
+// 1) Arduino mit Wartungsprogramm aufsetzen
 // 2)
 // 3)
+// Es hat sich aber herausgestellt dass ein Ausblasen auch ohne Wartungsmodus reibungslos klappt!!
 //*************************************************************************************************
 
 void setup() {
