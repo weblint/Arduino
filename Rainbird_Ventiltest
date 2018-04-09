@@ -7,7 +7,7 @@ int led =13;
 // 08.04.2018
 //
 // 
-// Ventind geschaltet
+// Ventile werden abwechselnd geschaltet
 //
 // 
 // 
