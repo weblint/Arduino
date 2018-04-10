@@ -11,7 +11,8 @@ int led =13;
 //
 // 
 // Wenn die ursprünglichen Zeiten wieder aktiviert werden kann das Programm wie 
-//  gewohnt wieder eingesetzt werden
+//  gewohnt wieder eingesetzt werden.
+// Somit kann zum Winter wenn die Ventile ausgeblasen werden wieder die andere Zeit aktiviert werden
 //
 //*************************************************************************************************
 
