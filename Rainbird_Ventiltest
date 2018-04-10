@@ -10,8 +10,9 @@ int led =13;
 // Ventile werden abwechselnd geschaltet
 //
 // 
-// 
-// 
+// Wenn die ursprünglichen Zeiten wieder aktiviert werden kann das Programm wie 
+//  gewohnt wieder eingesetzt werden
+//
 //*************************************************************************************************
 
 void setup() {
