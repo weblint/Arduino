@@ -1,0 +1,111 @@
+#include <VirtualWire.h>
+ 
+byte analogPin;
+int reservedPin = 5; //  Incoming Firmata data on this pin is handled specially.
+int SESNOR_PIN = 10;
+String deviceCode, swCode;
+char code[12]; //neu: hier wird der Code gespeichert
+ 
+void sendByte(String deviceCode, String swCode) {
+   //In Abhängigkeit vom GeräteCode und dem Schaltbefehl wird die entsprechende Aktion ausgeführt
+   if(deviceCode == "120000") {   
+      if(swCode == "on") {   
+        digitalWrite(8, HIGH);
+      }
+      if(swCode == "off") {   
+        digitalWrite(8, LOW);
+      }
+    }
+ 
+   if(deviceCode == "121000") {   
+      if(swCode == "on") {   
+        digitalWrite(9, HIGH);
+      }
+      if(swCode == "off") {   
+        digitalWrite(9, LOW);
+      }
+    }
+ 
+    if(deviceCode == "110000") {   
+      if(swCode == "on") {   
+        const char *msg = "relay1_on";
+        vw_send((uint8_t *)msg, strlen(msg));
+        vw_wait_tx(); // Wait until the whole message is gone
+        digitalWrite(13, false);
+        delay(10);     
+      }
+      if(swCode == "off") {   
+        const char *msg = "relay1_off";
+        vw_send((uint8_t *)msg, strlen(msg));
+        vw_wait_tx(); // Wait until the whole message is gone
+        digitalWrite(13, false);
+        delay(10);     
+      }
+    }
+ 
+    if(deviceCode == "111000") {   
+      if(swCode == "on") {   
+        const char *msg = "relay2_on";
+        vw_send((uint8_t *)msg, strlen(msg));
+        vw_wait_tx(); // Wait until the whole message is gone
+        digitalWrite(13, false);
+        delay(10);     
+      }
+      if(swCode == "off") {   
+        const char *msg = "relay2_off";
+        vw_send((uint8_t *)msg, strlen(msg));
+        vw_wait_tx(); // Wait until the whole message is gone
+        digitalWrite(13, false);
+        delay(10);     
+      }
+    }
+}
+ 
+boolean sendCode(char code[]){
+  //Der GeräteCode und Schaltbefehl wird extrahiert
+  for(short i = 4; i<11; i++){
+    if( i < 10){
+      deviceCode += code[i];
+    } else {
+      if (code[i] == '0'){
+        swCode = "on";
+      } else {
+        swCode = "off";
+      }
+    }
+  }
+  //Die extrahierten Infrmationen werden an die Ausführung übergeben
+  sendByte(deviceCode, swCode);
+  deviceCode="";
+  swCode="";
+  return true;
+}
+ 
+void setup() {
+ 
+  Serial.begin(9600);	  // Debugging only
+  // Initialise the IO and ISR
+  vw_set_ptt_inverted(true); // Required for DR3100
+  vw_set_tx_pin(18); //transmitter
+  vw_set_rx_pin(19); //receiver
+//  vw_set_ptt_pin(8); //push to talk
+  vw_setup(2000);	// Bits per sec
+  vw_rx_start();       // Start the receiver PLL running
+   // initialize the LED pins:
+  for (int thisPin = 8; thisPin < 10; thisPin++) {
+    pinMode(thisPin, OUTPUT);
+  }
+}
+ 
+void loop() {
+ 
+  //Das Empfangene Kommando wird analysert unf ohen Start-b in einen Char-Array geschrieben
+  while(Serial.available() <= 0){ delay(10);}
+  while(Serial.read() != 'b'){ delay(10);}
+  for(short i=0; i<12; i++){
+    while(Serial.available() <= 0){ delay(10);}
+    code[i] = Serial.read();
+  }
+ //Analyserter und Empfangener Code wird zur weiteren Aufbereitung übergeben
+  sendCode(code);
+}
