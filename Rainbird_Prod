@@ -25,6 +25,7 @@ void setup() {
 
 void loop() {
    pinMode(relaisPin1, OUTPUT);
+   //---------------------------------------------------
      /* Zone 1  */
   digitalWrite(relaisPin1, HIGH); //Relais aus
     delay(600);  //500ms warten
