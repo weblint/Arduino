@@ -1,6 +1,7 @@
 const int relaisPin1 = 3;
 const int relaisPin2 = 4;
 const int relaisPin3 = 5;
+const int inputPin1 = 2;
 
 int led =13;
 //*************************************************************************************************
@@ -8,7 +9,7 @@ int led =13;
 //
 // 09.05.2018 Script create für Pierre
 //
-// 
+// Sobald das Eingangssignal an Pin6 aus dem ESP32 anliegt soll das programm starten
 // Ventil  schaltet a) nacheinander Zone 1,2,3 jeweils 20 Min
 //
 // Onboard LED blinkt
@@ -21,12 +22,21 @@ void setup() {
  pinMode(relaisPin1, OUTPUT); // Den PWM PIN "relaisPin" als Ausgangssignal setzen.
  pinMode(relaisPin2, OUTPUT);
  pinMode(relaisPin3, OUTPUT);
+ pinMode(inputPin1, INPUT);
  
  Serial.begin(9600);
   pinMode(led, OUTPUT);
 }
 
 void loop() {
+buttonState = digitalRead(inputPin1);
+
+ if (buttonState == HIGH) {
+ digitalWrite(inputPin1, HIGH);
+ }
+ else {
+ digitalWrite(inputPin1, LOW);
+ }
    // pinMode(relaisPin1, OUTPUT);
    //---------------------------------------------------
      /* Zone 1  */
