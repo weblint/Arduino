@@ -43,7 +43,7 @@ void loop() {
     digitalWrite(led,LOW);
   //delay(1000);
   delay(7000);
-  
+   
   //---------------------------------------------------
   /*Zone 2 */
   pinMode(relaisPin2, OUTPUT);
