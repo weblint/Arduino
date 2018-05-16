@@ -1,9 +1,11 @@
 const int relaisPin1 = 3;
 const int relaisPin2 = 4;
 const int relaisPin3 = 5;
-const int inputPin1 = 2;
+const int buttonPin  = 2; 
 
 int led =13;
+int buttonState      = 0;     // current state of the button
+int lastButtonState  = 0;     // previous state of the button
 //*************************************************************************************************
 // Info: Relais LOW schaltet ein!!!
 //
@@ -15,6 +17,8 @@ int led =13;
 // Onboard LED blinkt
 //
 // Produktiv ab xx.xx.xxxx
+//
+// Test mit nur einer Zone
 // 
 //*************************************************************************************************
 
@@ -22,22 +26,16 @@ void setup() {
  pinMode(relaisPin1, OUTPUT); // Den PWM PIN "relaisPin" als Ausgangssignal setzen.
  pinMode(relaisPin2, OUTPUT);
  pinMode(relaisPin3, OUTPUT);
- pinMode(inputPin1, INPUT);
- 
+ pinMode(buttonPin, INPUT);  // initialize the button pin as a input
  Serial.begin(9600);
-  pinMode(led, OUTPUT);
 }
 
 void loop() {
-buttonState = digitalRead(inputPin1);
+buttonState = digitalRead(buttonPin);
 
  if (buttonState == HIGH) {
- digitalWrite(inputPin1, HIGH);
- }
- else {
- digitalWrite(inputPin1, LOW);
- }
-   // pinMode(relaisPin1, OUTPUT);
+ digitalWrite(buttonPin, HIGH);
+ // pinMode(relaisPin1, OUTPUT);
    //---------------------------------------------------
      /* Zone 1  */
   digitalWrite(relaisPin1, HIGH); //Relais aus
@@ -53,39 +51,18 @@ buttonState = digitalRead(inputPin1);
     digitalWrite(led,LOW);
   //delay(1000);
   delay(7000);
-   
-  //---------------------------------------------------
-  /*Zone 2 */
-  pinMode(relaisPin2, OUTPUT);
-  digitalWrite(relaisPin2, HIGH); //Relais aus
-  delay(600);  //500ms warten
-  digitalWrite(relaisPin2, LOW);  //Relais ein
-  digitalWrite(led,HIGH);
-  //delay(1000);
-  delay(1200000);// 20Minuten Einschalten
-  // delay(6000); //30 Sek für Ventiltest oder Wintermode
-  
-  pinMode(relaisPin2, INPUT); 
-  digitalWrite(relaisPin2, HIGH); //Relais aus
-  digitalWrite(led,LOW);
-  //delay(1000);
-  delay(7000);
-  
-  //---------------------------------------------------
-  /*Zone 3 */
-  pinMode(relaisPin2, OUTPUT);
-  digitalWrite(relaisPin3, HIGH); //Relais aus
-  delay(600);  //500ms warten
-  digitalWrite(relaisPin3, LOW);  //Relais ein
-  digitalWrite(led,HIGH);
-  //delay(1000);
-  delay(1200000);// 20Minuten Einschalten
-  // delay(6000); //30 Sek für Ventiltest oder Wintermode
-  
+ }
+ else {
+ digitalWrite(buttonPin, LOW);
+ //~~~~~
   pinMode(relaisPin3, INPUT); 
   digitalWrite(relaisPin3, HIGH); //Relais aus
   digitalWrite(led,LOW);
   //delay(1000);
   delay(7000);
+ }
+   
+   
+  
   
 }
