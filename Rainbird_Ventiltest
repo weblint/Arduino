@@ -14,6 +14,8 @@ int led =13;
 //  gewohnt wieder eingesetzt werden.
 // Somit kann zum Winter wenn die Ventile ausgeblasen werden wieder die andere Zeit aktiviert werden
 //
+// pinMode(pin, INPUT);           // set pin to input
+// digitalWrite(pin, HIGH);       // turn on pullup resistors
 //*************************************************************************************************
 
 void setup() {
