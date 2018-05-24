@@ -1,7 +1,7 @@
 // Schalte GPO2 mit Button und Java im Access Point modus  WLAN-Hotspot "WLAN_TEST" pass "08150000"
 // http://esp8266-server.de/
 // im Repository https://github.com/weblint/ESP32/blob/master/WebSwitch_PR
-// weiterer Webswitch
+// weiterer Webswitch-Code
  
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
