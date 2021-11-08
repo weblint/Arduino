@@ -1,3 +1,13 @@
+//************************************************************************************************
+// Zuletzt gesehen: 8.11.2021
+// Zone 2 könnte auf 10 Minuten erhöht werden
+// Zone 1 lönnte auf 15 Minuten erhöht werden
+// 10 Minuten sind 600 000 ms
+// 15 Minuten sind 900 000 ms
+// 15 Sekunden sind 15 000 ms
+//
+//https://www.smart-rechner.de/zeit_umr/infothek/umrechner_minute_millisekunde.php
+//************************************************************************************************
 const int relaisPin1 = 3;
 const int relaisPin2 = 4;
 //*************************************************************************************************
@@ -21,23 +31,23 @@ void setup() {
 
 void loop() {
    pinMode(relaisPin1, OUTPUT);
-     /* Zone 1  */
+     /*  Zone 1  */
   digitalWrite(relaisPin1, HIGH); //Relais aus
     delay(600);  //500ms warten
   digitalWrite(relaisPin1, LOW);  //Relais ein
-    //delay(600000);// 10Minuten warten
-    delay(60000);
+    delay(900000);// 10 Minuten Relais Ein-Schalten und Rasen bewässern
+    //delay(60000); // Test -Modus
   pinMode(relaisPin1, INPUT);
     digitalWrite(relaisPin1, HIGH); //Relais aus
-  delay(7000);
+  delay(15000); // 15 Sekunden warten bevor Zone 2 startet
   //---------------------------------------------------
   /*Zone 2 */
   pinMode(relaisPin2, OUTPUT);
   digitalWrite(relaisPin2, HIGH); //Relais aus
   delay(600);  //500ms warten
   digitalWrite(relaisPin2, LOW);  //Relais ein
-  //delay(300000);// 5 Minuten warten
-  delay(60000);
+  delay(600000);// 10 Minuten Relais Ein-Schalten und Rasen bewässern
+  //delay(60000); // Test-Modus
   pinMode(relaisPin2, INPUT); 
   digitalWrite(relaisPin2, HIGH); //Relais aus
   delay(5000);
